@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doweb-app
+  labels:
+    tier: frontend
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: doweb-app
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: doweb-app
+          image: registry.digitalocean.com/do-sp-webapp/doweb-app:latest
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              cpu: "500m"
+  selector:
+    matchLabels:
+      tier: frontend
