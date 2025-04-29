@@ -14,9 +14,9 @@ To build the Docker image for the App using the Dockerfile(Dockerfile should be 
 
 Check if the image got created successfully: docker images
 
-Tag the image with the FQDN of the registry where we plan to push/upload it: docker tag my-python-app registry.digitalocean.com/<your-registry-name>/doweb-app
+Tag the image with the FQDN of the registry where we plan to push/upload it: docker tag my-python-app registry.digitalocean.com/your-registry-name/doweb-app
 
-Push the image to registry: docker push registry.digitalocean.com/<your-registry-name>/doweb-app
+Push the image to registry: docker push registry.digitalocean.com/your-registry-name/doweb-app
 
 Create a Kubernetes cluster to deploy the App. This can be done from the UI/Control Panel, or using the CLI as well:
 doctl kubernetes cluster create <your-cluster-name> --tag do-tutorial --auto-upgrade=true --node-pool "name=mypool;count=2;auto-scale=true;min-nodes=1;max-nodes=3;tag=do-tutorial"
